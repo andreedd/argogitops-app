@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: nginxapp
-        image: nginx:1.14.2
+        image: ddeeh/argogitops:1.0
         ports:
         - containerPort: 80
