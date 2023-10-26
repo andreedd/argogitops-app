@@ -44,5 +44,3 @@ jobs:
       with:
         add: 'kustomization.yaml'
         message: New version release for gitops-app ${{ github.sha }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
