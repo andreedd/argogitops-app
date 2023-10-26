@@ -1,9 +1,22 @@
-k3d cluster create mycluster -p "8082:30080@agent:0" --agents 2
+k3d cluster create --port 8082:30080@agent:0 -p 8081:80@loadbalancer --agents 2
+
+kubectl apply -f manifests/namespaces.yaml
+kubectl apply -f manifests/
 
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+kubectl get pods -n argocd
 
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 
 login:
 admin
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+
+Argo config:
+argoapp
+default
+https://github.com/andreedd/argogitops-app.git
+manifests
+https://kubernetes.default.svc
+argoapp

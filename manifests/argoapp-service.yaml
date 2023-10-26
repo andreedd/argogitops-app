@@ -6,11 +6,11 @@ metadata:
   labels:
     app: argoapp
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: argoapp
   ports:
     - protocol: TCP
-      nodePort: 30080
+      # nodePort: 30080
       port: 80
       targetPort: 80
