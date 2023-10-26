@@ -38,6 +38,11 @@ jobs:
     - name: Update yamls
       run: |
           kustomize edit set image PROJECT/PROJECT/ARGOAPP_IMAGE=ddeeh/argogitops:${{ github.sha }}
-          git add .
-          git commit -m "New version release for gitops-app `${GITHUB_SHA}`"
-          git push
+
+    - name: Commit and push
+      uses: EndBug/add-and-commit@v9
+      with:
+        add: 'kustomization.yaml'
+        message: New version release for gitops-app ${{ github.sha }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
