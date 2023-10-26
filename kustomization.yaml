@@ -9,4 +9,6 @@ images:
 - name: PROJECT/ARGOAPP_IMAGE
   newName: ddeeh/argogitops
   newTag: v1.0
-  
+- name: PROJECT/PROJECT/ARGOAPP_IMAGE
+  newName: ddeeh/argogitops
+  newTag: e93095d5bde2b9c1bd05db100062d5f73ae9f867
