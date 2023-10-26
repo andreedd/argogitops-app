@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: argoapp
+  name: argoapp-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /argoapp
+        pathType: Prefix
+        backend:
+          service:
+            name: argoapp-svc
+            port:
+              number: 80
