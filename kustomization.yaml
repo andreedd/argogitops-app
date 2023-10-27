@@ -8,4 +8,4 @@ resources:
 images:
 - name: PROJECT/ARGOAPP_IMAGE
   newName: ddeeh/argogitops
-  newTag: 76ac7ec72dcbe53270270f9a8deac04e66e51a28
+  newTag: dfe40cf0e97606eaf03afb7033e8060235f4d723
