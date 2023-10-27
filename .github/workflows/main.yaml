@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'index.html'
+      - '.github/workflows/main.yml'
 
 jobs:
   build:
@@ -37,7 +40,7 @@ jobs:
 
     - name: Update yamls
       run: |
-          kustomize edit set image PROJECT/PROJECT/ARGOAPP_IMAGE=ddeeh/argogitops:${{ github.sha }}
+          kustomize edit set image PROJECT/ARGOAPP_IMAGE=ddeeh/argogitops:${{ github.sha }}
 
     - name: Commit and push
       uses: EndBug/add-and-commit@v9
