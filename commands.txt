@@ -1,9 +1,14 @@
 k3d cluster create --port 8082:30080@agent:0 -p 8081:80@loadbalancer --agents 2
 
 kubectl apply -f manifests/namespaces.yaml
-kubectl apply -f manifests/
 
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+kubectl apply -f manifests/argocd.yaml -n argocd
+
+kubectl apply -f manifests/
+
+kubectl apply -k .
 
 kubectl get pods -n argocd
 
